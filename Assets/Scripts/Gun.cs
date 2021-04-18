@@ -6,6 +6,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float damage = 10f;
     [SerializeField] private float range = 100f;
     [SerializeField] private float fireRate = 15f;
+    [SerializeField] private int ammo = 15;
     [SerializeField] private ParticleSystem gunShotParticle = null;
     [SerializeField] private ParticleSystem impactEffectPrefab = null;
 
@@ -46,6 +47,7 @@ public class Gun : MonoBehaviour
                 if(enemy != null) enemy.TakeDamage(damage);
             }
             ParticleSystem particle = Instantiate(impactEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+            particle.Play();
             Destroy(particle.gameObject, 1f);
         }
     }
