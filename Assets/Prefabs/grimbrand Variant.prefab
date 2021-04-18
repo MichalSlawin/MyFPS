@@ -112,9 +112,12 @@ MonoBehaviour:
   damage: 10
   range: 100
   fireRate: 2
-  ammo: 15
+  maxAmmo: 15
+  reloadTime: 1
+  startMagazines: 10
   gunShotParticle: {fileID: 2988722994597332658}
   impactEffectPrefab: {fileID: 2988722994597332658}
+  animator: {fileID: 0}
 --- !u!1001 &7824487246324423309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,7 +127,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 5f9b176058917ba49a8059f6da098866, type: 3}
       propertyPath: m_Name
-      value: grimbrand
+      value: grimbrand Variant
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5f9b176058917ba49a8059f6da098866, type: 3}
       propertyPath: m_IsActive
@@ -172,6 +175,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5f9b176058917ba49a8059f6da098866, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 5f9b176058917ba49a8059f6da098866, type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -112,9 +112,13 @@ MonoBehaviour:
   damage: 10
   range: 100
   fireRate: 5
+  maxAmmo: 5
+  reloadTime: 3
+  startMagazines: 0
   gunShotParticle: {fileID: 5379450395600420072}
   impactEffectPrefab: {fileID: 5038465904081527577, guid: c68790da46691204b86b0a381d2bfd7a,
     type: 3}
+  animator: {fileID: 0}
 --- !u!1001 &1102150083717799921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219,7 +223,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: fccd8e251d698f7449ed9aca4bacc50e, type: 3}
       propertyPath: m_Name
-      value: hellwailer
+      value: hellwailer Variant
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fccd8e251d698f7449ed9aca4bacc50e, type: 3}
       propertyPath: m_LocalPosition.x
