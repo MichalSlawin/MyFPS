@@ -5,8 +5,17 @@ public class Gun : MonoBehaviour
     [SerializeField] private Camera fpsCamera = null;
     [SerializeField] private float damage = 10f;
     [SerializeField] private float range = 100f;
+    [SerializeField] private float fireRate = 15f;
     [SerializeField] private ParticleSystem gunShotParticle = null;
     [SerializeField] private ParticleSystem impactEffectPrefab = null;
+
+    private float nextTimeToFire = 0f;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -15,8 +24,9 @@ public class Gun : MonoBehaviour
 
     private void HandleInput()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
+            nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
     }
@@ -25,6 +35,8 @@ public class Gun : MonoBehaviour
     {
         gunShotParticle.Play();
         RaycastHit hit;
+
+        audioSource.Play();
 
         if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
