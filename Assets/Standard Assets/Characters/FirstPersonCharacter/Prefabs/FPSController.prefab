@@ -392,6 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1998343498}
   - component: {fileID: 1998343499}
+  - component: {fileID: 1998343500}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -429,6 +430,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+--- !u!95 &1998343500
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998343497}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e549b463a6d91640908f181eb2ac4dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4110055661715528151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -441,6 +461,11 @@ PrefabInstance:
       propertyPath: fpsCamera
       value: 
       objectReference: {fileID: 2000000}
+    - target: {fileID: 4110055662855756498, guid: 4a04839fa6e124843bcda2d1a85ab957,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1998343500}
     - target: {fileID: 4110055662855756499, guid: 4a04839fa6e124843bcda2d1a85ab957,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -542,6 +567,10 @@ PrefabInstance:
       propertyPath: ammo
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 376929940, guid: 820cf22c6720e294f9643c492ac5cb14, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1998343500}
     - target: {fileID: 376929941, guid: 820cf22c6720e294f9643c492ac5cb14, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -665,6 +694,10 @@ PrefabInstance:
       propertyPath: fpsCamera
       value: 
       objectReference: {fileID: 2000000}
+    - target: {fileID: 157463085, guid: ae15ef89e6f7afd47b3c72f247afad24, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1998343500}
     - target: {fileID: 2988722994597332658, guid: ae15ef89e6f7afd47b3c72f247afad24,
         type: 3}
       propertyPath: playOnAwake

@@ -2,7 +2,7 @@
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float hp = 10;
+    [SerializeField] private float hp = 100;
 
     public void TakeDamage(float damage)
     {
