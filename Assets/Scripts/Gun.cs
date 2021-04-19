@@ -46,6 +46,13 @@ public class Gun : MonoBehaviour
         HandleInput();
     }
 
+    public void AddMagazines(int number)
+    {
+        currentMagazines += number;
+        if (currentMagazines > MAX_MAGAZINES) currentMagazines = MAX_MAGAZINES;
+        UIController.SetAmmoText(currentAmmo, currentMagazines);
+    }
+
     private IEnumerator Reload()
     {
         reloading = true;

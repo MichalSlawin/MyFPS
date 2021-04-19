@@ -27,6 +27,13 @@ public class GrenadeThrower : MonoBehaviour
         }
     }
 
+    public void AddGrenades(int number)
+    {
+        currentGrenades += number;
+        if (currentGrenades > MAX_GRENADES) currentGrenades = MAX_GRENADES;
+        UIController.SetGrenadesText(currentGrenades);
+    }
+
     private void ThrowGrenade()
     {
         GameObject grenade = Instantiate(grenadePrefab, playerCamera.transform.position, playerCamera.transform.rotation);
