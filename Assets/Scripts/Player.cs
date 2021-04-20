@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private const float MAX_HP = 100;
+    private const float MAX_HP = 200;
     private const float HEALTH_PACK_BONUS = 25;
     private const int AMMO_BOX_BONUS = 2;
 
@@ -33,13 +33,13 @@ public class Player : MonoBehaviour
         if(other.CompareTag("HealthPack"))
         {
             AddHealthPackBonus();
-            Destroy(other.gameObject);
+            StartCoroutine(other.GetComponent<Collectible>().HideForTime());
         }
 
         if(other.CompareTag("AmmoBox"))
         {
             AddAmmo();
-            Destroy(other.gameObject);
+            StartCoroutine(other.GetComponent<Collectible>().HideForTime());
         }
     }
 

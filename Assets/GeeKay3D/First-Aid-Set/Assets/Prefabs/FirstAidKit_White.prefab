@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3248469052625518072}
   - component: {fileID: 9090630262107930881}
   - component: {fileID: 3261585399519066648}
+  - component: {fileID: 624176902}
   m_Layer: 0
   m_Name: FirstAidKit_White
   m_TagString: HealthPack
@@ -93,3 +94,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.9540792, y: 2.5032947, z: 0.4149846}
   m_Center: {x: 0, y: 1.2310425, z: 0.20749219}
+--- !u!114 &624176902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355713013926475229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb524452980249e4ea468b434ecfc89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnTime: 30

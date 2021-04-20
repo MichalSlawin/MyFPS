@@ -595,25 +595,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &981941946 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079477168}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &981941947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981941946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ce73c7b9e6b04547a0adfc1853fc678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
 --- !u!1001 &1000238215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -743,15 +724,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144685317, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
-      propertyPath: startMagazines
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7824487246250773548, guid: 5e9e851c0e142814dac026a256ba2ac0,
-        type: 3}
-      propertyPath: startMagazines
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -1257,28 +1229,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318140597}
   m_CullTransparentMesh: 0
---- !u!1 &1670860545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079477168}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1670860550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670860545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7b7b6b2c28aefe4bb66938bc2c5500a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwForce: 15
-  grenadePrefab: {fileID: 3746838918702949867, guid: 17456e598ed27014da4d9cd9c6a731bd,
-    type: 3}
-  currentGrenades: 2
 --- !u!1001 &1745133479
 PrefabInstance:
   m_ObjectHideFlags: 0
