@@ -97,6 +97,11 @@ public class Gun : MonoBehaviour
                 Enemy enemy = hit.transform.GetComponent<Enemy>();
                 if(enemy != null) enemy.TakeDamage(damage);
             }
+            if (hit.transform.CompareTag("Player"))
+            {
+                Player player = hit.transform.GetComponent<Player>();
+                if (player != null) player.TakeDamage(damage);
+            }
             ParticleSystem particle = Instantiate(impactEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
             particle.Play();
             Destroy(particle.gameObject, 1f);

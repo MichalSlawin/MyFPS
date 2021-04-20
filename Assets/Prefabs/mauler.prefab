@@ -196,6 +196,7 @@ MonoBehaviour:
   fireRate: 10
   maxAmmo: 30
   reloadTime: 2
+  startMagazines: 5
   gunShotParticle: {fileID: 4110055663087282956}
   impactEffectPrefab: {fileID: 4110055663087282956}
   animator: {fileID: 0}

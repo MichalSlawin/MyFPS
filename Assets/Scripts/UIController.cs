@@ -29,6 +29,6 @@ public class UIController : MonoBehaviour
     public static void SetHpText(float number)
     {
         if (hpText == null) hpText = GameObject.Find("HPText").GetComponent<TextMeshProUGUI>();
-        if (hpText != null) hpText.text = number.ToString();
+        if (hpText != null) hpText.text = Mathf.Ceil(number).ToString();
     }
 }

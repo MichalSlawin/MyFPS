@@ -44,6 +44,12 @@ public class Grenade : MonoBehaviour
                 float distance = Vector3.Distance(transform.position, collider.transform.position);
                 enemy.TakeDamage(damage / (distance + 0.1f));
             }
+            Player player = collider.GetComponent<Player>();
+            if (player != null)
+            {
+                float distance = Vector3.Distance(transform.position, collider.transform.position);
+                player.TakeDamage(damage / (distance + 0.1f));
+            }
         }
 
         Destroy(effect, delay*2);
