@@ -5,26 +5,27 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private const float MAX_HP = 200;
+    private const float START_HP = 100;
     private const float HEALTH_PACK_BONUS = 25;
     private const int AMMO_BOX_BONUS = 2;
 
     [SerializeField] private float hp = 100;
-    private GrenadeThrower grenadeThrower;
+    [SerializeField] private GrenadeThrower grenadeThrower = null;
+    private GameController gameController;
 
     private void Start()
     {
         UIController.SetHpText(hp);
-        grenadeThrower = FindObjectOfType<GrenadeThrower>();
+        gameController = FindObjectOfType<GameController>();
     }
 
     public void TakeDamage(float damage)
     {
-        hp -= damage;
-        UIController.SetHpText(hp);
+        SetHp(hp -= damage);
 
         if (hp <= 0)
         {
-            Debug.Log("You are dead");
+            gameController.RespawnPlayerRandom(gameObject);
         }
     }
 
@@ -45,7 +46,17 @@ public class Player : MonoBehaviour
 
     private void AddHealthPackBonus()
     {
-        hp += HEALTH_PACK_BONUS;
+        SetHp(hp + HEALTH_PACK_BONUS);
+    }
+
+    public void SetStartHp()
+    {
+        SetHp(START_HP);
+    }
+
+    private void SetHp(float newHp)
+    {
+        hp = newHp;
         if (hp > MAX_HP) hp = MAX_HP;
         UIController.SetHpText(hp);
     }
