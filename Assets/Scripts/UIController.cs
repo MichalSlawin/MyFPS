@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using TMPro;
+using Mirror;
 
-public class UIController : MonoBehaviour
+public class UIController : NetworkBehaviour
 {
-    private static TextMeshProUGUI ammoText;
-    private static TextMeshProUGUI grenadesText;
-    private static TextMeshProUGUI hpText;
+    private TextMeshProUGUI ammoText;
+    private TextMeshProUGUI grenadesText;
+    private TextMeshProUGUI hpText;
 
     private void Start()
     {
@@ -14,19 +15,19 @@ public class UIController : MonoBehaviour
         hpText = GameObject.Find("HPText").GetComponent<TextMeshProUGUI>();
     }
 
-    public static void SetAmmoText(int ammo, int magazines)
+    public void SetAmmoText(int ammo, int magazines)
     {
         if (ammoText == null) ammoText = GameObject.Find("AmmoText").GetComponent<TextMeshProUGUI>();
         if (ammoText != null) ammoText.text = ammo.ToString() + " | " + magazines.ToString();
     }
 
-    public static void SetGrenadesText(int number)
+    public void SetGrenadesText(int number)
     {
         if (grenadesText == null) grenadesText = GameObject.Find("GrenadesText").GetComponent<TextMeshProUGUI>();
         if (grenadesText != null) grenadesText.text = number.ToString();
     }
 
-    public static void SetHpText(float number)
+    public void SetHpText(float number)
     {
         if (hpText == null) hpText = GameObject.Find("HPText").GetComponent<TextMeshProUGUI>();
         if (hpText != null) hpText.text = Mathf.Ceil(number).ToString();

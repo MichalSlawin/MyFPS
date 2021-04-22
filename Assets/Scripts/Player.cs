@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class Player : MonoBehaviour
+public class Player : NetworkBehaviour
 {
     private const float MAX_HP = 200;
     private const float START_HP = 100;
@@ -12,10 +13,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float hp = 100;
     [SerializeField] private GrenadeThrower grenadeThrower = null;
     private GameController gameController;
+    private UIController uIController;
 
     private void Start()
     {
-        UIController.SetHpText(hp);
+        uIController = FindObjectOfType<UIController>();
+        uIController.SetHpText(hp);
         gameController = FindObjectOfType<GameController>();
     }
 
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
 
         if (hp <= 0)
         {
+            if(gameController == null) gameController = FindObjectOfType<GameController>();
             gameController.RespawnPlayerRandom(gameObject);
         }
     }
@@ -58,7 +62,8 @@ public class Player : MonoBehaviour
     {
         hp = newHp;
         if (hp > MAX_HP) hp = MAX_HP;
-        UIController.SetHpText(hp);
+        if (uIController == null) uIController = FindObjectOfType<UIController>();
+        uIController.SetHpText(hp);
     }
 
     private void AddAmmo()

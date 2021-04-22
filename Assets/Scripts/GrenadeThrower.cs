@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class GrenadeThrower : MonoBehaviour
+public class GrenadeThrower : NetworkBehaviour
 {
     private const int MAX_GRENADES = 5;
 
@@ -11,11 +12,13 @@ public class GrenadeThrower : MonoBehaviour
     [SerializeField] private int currentGrenades = 2;
 
     private Camera playerCamera;
+    private UIController uIController;
 
     private void Start()
     {
         playerCamera = GetComponent<Camera>();
-        UIController.SetGrenadesText(currentGrenades);
+        uIController = FindObjectOfType<UIController>();
+        uIController.SetGrenadesText(currentGrenades);
     }
 
     // Update is called once per frame
@@ -31,7 +34,13 @@ public class GrenadeThrower : MonoBehaviour
     {
         currentGrenades += number;
         if (currentGrenades > MAX_GRENADES) currentGrenades = MAX_GRENADES;
-        UIController.SetGrenadesText(currentGrenades);
+        SetGrenadesText();
+    }
+
+    private void SetGrenadesText()
+    {
+        if(uIController == null) uIController = FindObjectOfType<UIController>();
+        uIController.SetGrenadesText(currentGrenades);
     }
 
     private void ThrowGrenade()
@@ -40,6 +49,6 @@ public class GrenadeThrower : MonoBehaviour
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
         rb.AddForce(playerCamera.transform.forward * throwForce, ForceMode.VelocityChange);
         currentGrenades--;
-        UIController.SetGrenadesText(currentGrenades);
+        SetGrenadesText();
     }
 }

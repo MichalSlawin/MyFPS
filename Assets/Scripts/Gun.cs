@@ -21,12 +21,14 @@ public class Gun : MonoBehaviour
     private int currentAmmo;
     private int currentMagazines;
     private bool reloading = false;
+    private UIController uIController;
 
     private void OnEnable()
     {
+        uIController = FindObjectOfType<UIController>();
         reloading = false;
         animator.SetBool("reloading", false);
-        UIController.SetAmmoText(currentAmmo, currentMagazines);
+        uIController.SetAmmoText(currentAmmo, currentMagazines);
     }
 
     private void Start()
@@ -34,7 +36,7 @@ public class Gun : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         currentAmmo = maxAmmo;
         currentMagazines = startMagazines;
-        UIController.SetAmmoText(currentAmmo, currentMagazines);
+        uIController.SetAmmoText(currentAmmo, currentMagazines);
     }
 
     void Update()
@@ -50,7 +52,7 @@ public class Gun : MonoBehaviour
     {
         currentMagazines += number;
         if (currentMagazines > MAX_MAGAZINES) currentMagazines = MAX_MAGAZINES;
-        UIController.SetAmmoText(currentAmmo, currentMagazines);
+        uIController.SetAmmoText(currentAmmo, currentMagazines);
     }
 
     private IEnumerator Reload()
@@ -64,7 +66,7 @@ public class Gun : MonoBehaviour
         currentAmmo = maxAmmo;
         currentMagazines--;
         reloading = false;
-        UIController.SetAmmoText(currentAmmo, currentMagazines);
+        uIController.SetAmmoText(currentAmmo, currentMagazines);
     }
 
     private void HandleInput()
@@ -88,7 +90,7 @@ public class Gun : MonoBehaviour
 
         audioSource.Play();
         currentAmmo--;
-        UIController.SetAmmoText(currentAmmo, currentMagazines);
+        uIController.SetAmmoText(currentAmmo, currentMagazines);
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
