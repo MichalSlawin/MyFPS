@@ -125,6 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 3
-  radius: 10
-  damage: 100
+  radius: 15
+  damage: 400
   explosionEffect: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}

@@ -6,7 +6,7 @@ public class Grenade : MonoBehaviour
 {
     [SerializeField] private float delay = 3f;
     [SerializeField] private float radius = 10f;
-    [SerializeField] private float damage = 100f;
+    [SerializeField] private float damage = 200f;
     [SerializeField] private GameObject explosionEffect = null;
 
     private float countdown;
@@ -42,6 +42,7 @@ public class Grenade : MonoBehaviour
             if(enemy != null)
             {
                 float distance = Vector3.Distance(transform.position, collider.transform.position);
+                Debug.Log(damage / (distance + 0.1f));
                 enemy.TakeDamage(damage / (distance + 0.1f));
             }
             Player player = collider.GetComponent<Player>();

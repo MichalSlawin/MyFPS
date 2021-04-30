@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5813340303516442297}
-  - component: {fileID: 8557426911492490927}
+  - component: {fileID: 3684142139387618378}
   m_Layer: 0
   m_Name: Respawn
   m_TagString: Respawn
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8557426911492490927
+--- !u!114 &3684142139387618378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,6 +40,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1965783623796683310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
+  m_Script: {fileID: 11500000, guid: c8952b12bea6e6c47ada9207fd338bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnTime: 10
+  enemyPrefab: {fileID: 1203309738042580830, guid: 434cbcec2fe289e4b961e857ce6146b3,
+    type: 3}

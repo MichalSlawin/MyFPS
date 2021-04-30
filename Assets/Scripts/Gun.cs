@@ -95,19 +95,21 @@ public class Gun : MonoBehaviour
 
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
-            if(hit.transform.CompareTag("Enemy"))
+            Transform hitTransform = hit.transform;
+
+            if (hitTransform.CompareTag("Enemy"))
             {
-                Enemy enemy = hit.transform.GetComponent<Enemy>();
+                Enemy enemy = hitTransform.GetComponent<Enemy>();
                 if(enemy != null) enemy.TakeDamage(damage);
             }
-            if (hit.transform.CompareTag("Player"))
+            if (hitTransform.CompareTag("Player"))
             {
-                Player player = hit.transform.GetComponent<Player>();
+                Player player = hitTransform.GetComponent<Player>();
                 if (player != null) player.TakeDamage(damage);
             }
-            if (hit.transform.CompareTag("Eye"))
+            if (hitTransform.CompareTag("Eye"))
             {
-                Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
+                Enemy enemy = hitTransform.GetComponentInParent<Enemy>();
 
                 if(enemy == null) enemy = enemy.GetComponentInParent<Enemy>();
 
