@@ -2,7 +2,7 @@
 using TMPro;
 using Mirror;
 
-public class UIController : NetworkBehaviour
+public class UIController : MonoBehaviour
 {
     private TextMeshProUGUI ammoText;
     private TextMeshProUGUI grenadesText;

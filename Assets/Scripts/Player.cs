@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class Player : NetworkBehaviour
+public class Player : MonoBehaviour
 {
     private const float MAX_HP = 200;
     private const float START_HP = 100;

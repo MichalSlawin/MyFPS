@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class GrenadeThrower : NetworkBehaviour
+public class GrenadeThrower : MonoBehaviour
 {
     private const int MAX_GRENADES = 5;
 

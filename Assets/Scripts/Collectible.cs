@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    [SerializeField] private float respawnTime = 5;
+    private const float RESPAWN_TIME = 60;
 
     private MeshRenderer meshRenderer;
     private BoxCollider boxCollider;
@@ -19,7 +19,7 @@ public class Collectible : MonoBehaviour
     {
         meshRenderer.enabled = false;
         boxCollider.enabled = false;
-        yield return new WaitForSeconds(respawnTime);
+        yield return new WaitForSeconds(RESPAWN_TIME);
         meshRenderer.enabled = true;
         boxCollider.enabled = true;
     }

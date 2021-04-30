@@ -4,6 +4,7 @@ using System.Collections;
 public class Gun : MonoBehaviour
 {
     private const int MAX_MAGAZINES = 10;
+    private const float EYE_DAMAGE_MULTIPLIER = 2;
 
     [SerializeField] private Camera fpsCamera = null;
     [SerializeField] private float damage = 10f;
@@ -103,6 +104,14 @@ public class Gun : MonoBehaviour
             {
                 Player player = hit.transform.GetComponent<Player>();
                 if (player != null) player.TakeDamage(damage);
+            }
+            if (hit.transform.CompareTag("Eye"))
+            {
+                Enemy enemy = hit.transform.GetComponentInParent<Enemy>();
+
+                if(enemy == null) enemy = enemy.GetComponentInParent<Enemy>();
+
+                if (enemy != null) enemy.TakeDamage(damage * EYE_DAMAGE_MULTIPLIER);
             }
             ParticleSystem particle = Instantiate(impactEffectPrefab, hit.point, Quaternion.LookRotation(hit.normal));
             particle.Play();
