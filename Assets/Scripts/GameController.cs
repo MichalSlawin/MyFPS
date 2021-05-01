@@ -4,10 +4,42 @@ using Mirror;
 
 public class GameController : MonoBehaviour
 {
+    private const int KILLS_TO_DIVIDIE_TIME = 20;
+    private const int KILLS_TO_INCREASE_SPEED = 50;
+
     private const int FRAME_RATE = 120;
+    private static int killCount = 0;
+    private static int activeEnemies = 0;
 
     private GameObject[] respawns;
     private System.Random random;
+
+    public static int ActiveEnemies { get => activeEnemies; set => activeEnemies = value; }
+
+    public static void IncreaseKillCount()
+    {
+        killCount++;
+
+        if(killCount == KILLS_TO_DIVIDIE_TIME)
+        {
+            Respawn[] respawns = FindObjectsOfType<Respawn>();
+
+            foreach(Respawn respawn in respawns)
+            {
+                respawn.DivideRespawnTime();
+            }
+        }
+
+        if(killCount == KILLS_TO_INCREASE_SPEED)
+        {
+            Enemy.SpeedIncreased = true;
+        }
+    }
+
+    public static int GetKillCount()
+    {
+        return killCount;
+    }
 
     void Start()
     {

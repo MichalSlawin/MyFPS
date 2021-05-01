@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    private float SPEED_MULTIPLIER = 1.5f;
+
     private const float DAMAGE = 10;
     private const float DAMAGE_DISTANCE = 1.5f;
 
@@ -10,11 +12,22 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private Player player;
     private bool dealtDamage = false;
+    private static bool speedIncreased = false;
+
+    public static bool SpeedIncreased { get => speedIncreased; set => speedIncreased = value; }
 
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<Player>();
+        GameController.ActiveEnemies++;
+
+        if(SpeedIncreased)
+        {
+            navMeshAgent.speed *= SPEED_MULTIPLIER;
+            navMeshAgent.angularSpeed *= SPEED_MULTIPLIER;
+            navMeshAgent.acceleration *= SPEED_MULTIPLIER;
+        }
     }
 
     private void Update()
@@ -35,7 +48,7 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -44,8 +57,15 @@ public class Enemy : MonoBehaviour
         if(!dealtDamage)
         {
             player.TakeDamage(DAMAGE);
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        GameController.IncreaseKillCount();
+        GameController.ActiveEnemies--;
+        Destroy(gameObject);
     }
 
 }

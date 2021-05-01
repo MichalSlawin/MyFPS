@@ -111,8 +111,8 @@ NavMeshSettings:
     agentHeight: 1.5
     agentSlope: 45
     agentClimb: 0.4
-    ledgeDropHeight: 4
-    maxJumpAcrossDistance: 2
+    ledgeDropHeight: 4.1
+    maxJumpAcrossDistance: 4
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.13333334
@@ -4300,7 +4300,7 @@ PrefabInstance:
     - target: {fileID: 3176678054050975001, guid: 77b8d39e039756d4884638796726a812,
         type: 3}
       propertyPath: m_RootOrder
-      value: 193
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 3176678054050975001, guid: 77b8d39e039756d4884638796726a812,
         type: 3}
@@ -13242,7 +13242,7 @@ PrefabInstance:
     - target: {fileID: 3176678054050975001, guid: 77b8d39e039756d4884638796726a812,
         type: 3}
       propertyPath: m_RootOrder
-      value: 192
+      value: 191
       objectReference: {fileID: 0}
     - target: {fileID: 3176678054050975001, guid: 77b8d39e039756d4884638796726a812,
         type: 3}
@@ -13872,8 +13872,8 @@ Transform:
   - {fileID: 1445662717}
   - {fileID: 997747315}
   - {fileID: 1655192786}
-  - {fileID: 460463550}
   - {fileID: 573012482}
+  - {fileID: 460463550}
   m_Father: {fileID: 242491785}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15298,6 +15298,10 @@ PrefabInstance:
       propertyPath: m_GravityMultiplier
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1144685317, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2609350787191996007, guid: 5e9e851c0e142814dac026a256ba2ac0,
         type: 3}
       propertyPath: sceneId
@@ -15307,6 +15311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824487246250773548, guid: 5e9e851c0e142814dac026a256ba2ac0,
+        type: 3}
+      propertyPath: damage
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3037257257729648783, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
