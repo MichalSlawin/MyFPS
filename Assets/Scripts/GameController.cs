@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Mirror;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameController : MonoBehaviour
     private const int FRAME_RATE = 120;
     private static int killCount = 0;
     private static int activeEnemies = 0;
+    private UIController uIController;
+    private bool gameEnded = false;
 
     private GameObject[] respawns;
     private System.Random random;
@@ -41,9 +44,27 @@ public class GameController : MonoBehaviour
         return killCount;
     }
 
+    public void EndGame()
+    {
+        uIController.SetLoseText(killCount);
+        gameEnded = true;
+        Time.timeScale = 0;
+    }
+
+    private void RestartGame()
+    {
+        activeEnemies = 0;
+        killCount = 0;
+        Enemy.SpeedIncreased = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     void Start()
     {
         Application.targetFrameRate = FRAME_RATE;
+
+        uIController = FindObjectOfType<UIController>();
 
         respawns = GameObject.FindGameObjectsWithTag("Respawn");
         random = new System.Random();
@@ -51,6 +72,14 @@ public class GameController : MonoBehaviour
         NetworkManagerHUD hud = FindObjectOfType<NetworkManagerHUD>();
         if (hud != null)
             hud.enabled = false;
+    }
+
+    private void Update()
+    {
+        if(gameEnded && Input.GetKeyDown(KeyCode.R))
+        {
+            RestartGame();
+        }
     }
 
     public void RespawnPlayerRandom(GameObject player)

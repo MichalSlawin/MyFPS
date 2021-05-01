@@ -7,12 +7,14 @@ public class UIController : MonoBehaviour
     private TextMeshProUGUI ammoText;
     private TextMeshProUGUI grenadesText;
     private TextMeshProUGUI hpText;
+    private TextMeshProUGUI loseText;
 
     private void Start()
     {
         ammoText = GameObject.Find("AmmoText").GetComponent<TextMeshProUGUI>();
         grenadesText = GameObject.Find("GrenadesText").GetComponent<TextMeshProUGUI>();
         hpText = GameObject.Find("HPText").GetComponent<TextMeshProUGUI>();
+        loseText = GameObject.Find("LoseText").GetComponent<TextMeshProUGUI>();
     }
 
     public void SetAmmoText(int ammo, int magazines)
@@ -31,5 +33,11 @@ public class UIController : MonoBehaviour
     {
         if (hpText == null) hpText = GameObject.Find("HPText").GetComponent<TextMeshProUGUI>();
         if (hpText != null) hpText.text = Mathf.Ceil(number).ToString();
+    }
+
+    public void SetLoseText(int number)
+    {
+        if (loseText == null) loseText = GameObject.Find("LoseText").GetComponent<TextMeshProUGUI>();
+        if (loseText != null) loseText.text = "You killed " + number.ToString() + "\nPress R to play again";
     }
 }

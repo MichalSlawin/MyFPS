@@ -28,8 +28,7 @@ public class Player : MonoBehaviour
 
         if (hp <= 0)
         {
-            if(gameController == null) gameController = FindObjectOfType<GameController>();
-            gameController.RespawnPlayerRandom(gameObject);
+            gameController.EndGame();
         }
     }
 
